@@ -92,13 +92,13 @@ Args:
 
 Param DnsRewrite (DnsRewriteObject): the DnsRewrite param.
 
-Param TranslatedAddressSingle (string, required): The ip address to be translated. String validation regex: `^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$|^(?:[A-Fa-f0-9]{1,4}:){7}[A-Fa-f0-9]{1,4}$`.
+Param TranslatedAddress (string, required): The ip address to be translated. String validation regex: `^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$|^(?:[A-Fa-f0-9]{1,4}:){7}[A-Fa-f0-9]{1,4}$`.
 
 Param TranslatedPort (int64): the TranslatedPort param.
 */
 type DestinationTranslationObject struct {
 	DnsRewrite              *DnsRewriteObject `json:"dns_rewrite,omitempty"`
-	TranslatedAddressSingle string            `json:"translated_address_single"`
+	TranslatedAddress string            `json:"translated_address"`
 	TranslatedPort          *int64            `json:"translated_port,omitempty"`
 }
 
@@ -131,13 +131,13 @@ Args:
 
 Param Distribution (string, required): the Distribution param. String must be one of these: `"round-robin"`, `"source-ip-hash"`, `"ip-modulo"`, `"ip-hash"`, `"least-sessions"`. Default: `"round-robin"`.
 
-Param TranslatedAddressSingle (string, required): The ip address to be translated. String validation regex: `^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$|^(?:[A-Fa-f0-9]{1,4}:){7}[A-Fa-f0-9]{1,4}$`.
+Param TranslatedAddress (string, required): The ip address to be translated. String validation regex: `^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$|^(?:[A-Fa-f0-9]{1,4}:){7}[A-Fa-f0-9]{1,4}$`.
 
 Param TranslatedPort (int64): the TranslatedPort param.
 */
 type DynamicDestinationTranslationObject struct {
 	Distribution            string `json:"distribution"`
-	TranslatedAddressSingle string `json:"translated_address_single"`
+	TranslatedAddress string `json:"translated_address"`
 	TranslatedPort          *int64 `json:"translated_port,omitempty"`
 }
 
@@ -157,17 +157,17 @@ Param Fallback (FallbackObject): the Fallback param.
 
 Param TranslatedAddressArray ([]string): the TranslatedAddressArray param.
 
-Param TranslatedAddressSingle (string): the TranslatedAddressSingle param. String validation regex: `^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$|^(?:[A-Fa-f0-9]{1,4}:){7}[A-Fa-f0-9]{1,4}$`.
+Param TranslatedAddress (string): the TranslatedAddress param. String validation regex: `^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$|^(?:[A-Fa-f0-9]{1,4}:){7}[A-Fa-f0-9]{1,4}$`.
 
 NOTE:  One of the following params should be specified:
   - TranslatedAddressArray
-  - TranslatedAddressSingle
+  - TranslatedAddress
 */
 type SourceTranslationObject struct {
 	BiDirectional           *string         `json:"bi_directional,omitempty"`
 	Fallback                *FallbackObject `json:"fallback,omitempty"`
 	TranslatedAddressArray  []string        `json:"translated_address_array,omitempty"`
-	TranslatedAddressSingle *string         `json:"translated_address_single,omitempty"`
+	TranslatedAddress *string         `json:"translated_address,omitempty"`
 }
 
 /*
