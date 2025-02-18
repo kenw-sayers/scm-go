@@ -1,3 +1,3 @@
-module github.com/paloaltonetworks/scm-go
+module github.com/kenw-sayers/scm-go
 
 go 1.21.4
